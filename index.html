@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="./images/profile-pic (7).png">
+    <!-- <link rel="stylesheet" href="gitcalendar.css"/> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/gitStatsAndCalendar.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <title>Parveen Barak</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: currentColor;
+}
+
+header {
+  width: 100vw;
+  height: 75px;
+  background-color: #fff;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 25%);
+  display: flex;
+  align-items: center;
+}
+
+header .container-fluid {
+  width: 100%;
+  padding: 0 59px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .navb-logo {
+  font-weight: 800;
+  font-size: 32px;
+}
+
+header .navb-items {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  letter-spacing: 3px;
+  width: 100%;
+}
+
+header .mobile-toggle i {
+  font-size: 20px;
+}
+
+header .item {
+  margin: 1% 3%;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #102447;
+  transition: all 0.1s ease;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  border-bottom: 0px solid #64d6f4;
+  border-top: 0px solid #64d6f4;
+  cursor: pointer;
+}
+
+header .item:hover {
+  border-bottom: 3px solid #64d6f4;
+  border-top: 3px solid #64d6f4;
+}
+
+header .item-button a {
+  background-color: #102447;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+header .item-button a:hover {
+  background-color: #64d6f4;
+}
+
+/* Modal */
+.modal-dialog {
+  margin: 0;
+  width: 430px;
+}
+
+.modal-content {
+  height: 100vh;
+  overflow: scroll;
+  background-color: #102447;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 88%;
+  margin: 0 auto;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #fefefe;
+}
+
+.modal-header p {
+  font-weight: 800;
+  font-size: 32px;
+  color: white;
+}
+
+.modal-header .btn-close {
+  background: transparent;
+  opacity: 1;
+}
+
+.modal-header i {
+  color: #fefefe;
+  font-size: 30px;
+}
+
+.modal-body {
+  width: 88%;
+  margin: 0 auto;
+  padding: 25px 0;
+  flex: unset;
+}
+
+.modal-body .modal-line {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px 0;
+  margin-bottom: 25px;
+  cursor: pointer;
+  color: #274d8a;
+  border-bottom: 1px solid #274d8a;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+.modal-body .modal-line:hover {
+  color: #fefefe;
+  border-bottom: 1px solid #fefefe;
+}
+
+.modal-line a {
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  color: #fefefe;
+}
+
+.modal-line i {
+  color: currentColor;
+  font-size: 30px;
+  width: 35px;
+  margin-right: 15px;
+  color: #fefefe;
+  padding: 0 0 3px 3px;
+}
+
+.navb-button {
+  width: 100%;
+  height: 47px;
+  background-color: #fefefe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #274d8a;
+  letter-spacing: 2px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+.navb-button:hover {
+  background-color: #274d8a;
+  color: #fefefe;
+}
+
+.mobile-modal-footer {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.mobile-modal-footer a {
+  color: #64d6f4;
+}
+
+.mobile-modal-footer a i {
+  font-size: 24px;
+}
+
+.mobile-modal-footer i:hover {
+  color: #fefefe;
+}
+
+
+/* Responsive */
+@media (min-width: 1024px) {
+  .mobile-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  header .navb-items {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-1 p {
+    font-size: 50px;
+    text-align: start;
+    width: 70%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .modal-dialog {
+    width: 100%;
+  }
+}
+
+#fixednavbar{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+
+}
+
+
+
+</style>
+</head>
+
+<body>
+    <div class="banner">
+        <div id="fixednavbar">
+
+        
+        <header>
+            <div class="container-fluid">
+              <div class="navb-logo">
+                <a href="#"><img style="border-radius: 50%;" height="50px" width="50px" src="./images/Photoroom-20240815_211607.png" alt=""></a>
+              </div>
+              <div class="navb-items">
+                
+                <div class="item">
+                  <a href="#">About</a>
+                </div>
+                <div class="item">
+                  <a href="#contactEmailAddress">Contact</a>
+                </div>
+                <div class="item">
+                    <a href="#to_stop_for_skills">Skills</a>
+                  </div>
+                <div class="item">
+                    <a href="#projects">Projects</a>
+                  </div>
+                  <div class="item">
+                    <a href="#gitStatCals">Github Stats</a>
+                  </div>
+                <div class="item-button">
+                  <a href="Skills_Icons/ParveenBarak-FullStackWebDeveloper-Resume.pdf" target="_blank" 
+                  onclick="downloadFile(event)">
+                  Resume
+                  <i class="ri-download-2-line"></i>
+                </a>
+                </div>
+              </div>
+              <!-- Button Trigger Modal Start -->
+              <div class="mobile-toggle">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#navModal">
+                  <i class="fas fa-bars"></i>
+                </a>
+              </div>
+              <!-- Modal Trigger Modal End -->
+              <!-- Modal Start -->
+              <div class="modal fade" id="navModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <p>Parveen Barak</p>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="modal-line">
+                        <i class="bi bi-house"></i><a href="/">Home</a>
+                      </div>
+                      <div class="modal-line">
+                        <i class="bi bi-info-circle"></i><a href="/about">About</a>
+                      </div>
+                      <div class="modal-line">
+                        <i class="bi bi-filetype-doc"></i><a href="#contactEmailAddress">Contact</a>
+                      </div>
+                      <div class="modal-line">
+                        <i class="bi bi-folder-check"></i><a href="#projects">Projects</a>
+                      </div>
+                      <div class="modal-line">
+                        <i class="bi bi-folder-check"></i><a href="#to_stop_for_skills">Skills</a>
+                      </div>
+                      <div class="modal-line">
+                        <i class="bi bi-folder-check"></i><a href="#gitStatCals">GitHub Stats</a>
+                      </div>
+                      <div class="modal-line">
+                        <i class="bi bi-telephone"></i><a href="Skills_Icons/ParveenBarak-FullStackWebDeveloper-Resume.pdf" target="_blank" 
+                        onclick="downloadFile(event)">
+                        Resume
+                        <i class="ri-download-2-line"></i>
+                      </a>
+                      </div>
+                    </div>
+                    <div class="mobile-modal-footer">
+                      <a target="_blank" href="#"><i class="bi bi-instagram"></i></a>
+                      <a target="_blank" href="#"><i class="bi bi-linkedin"></i></a>
+                      <a target="_blank" href="#"><i class="bi bi-youtube"></i></a>
+                      <a target="_blank" href="#"><i class="bi bi-facebook"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal End -->
+            </div>
+          </header>
+        </div>
+          <!-- Header End -->
+          <!-- JS Start -->
+          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+          </script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+          </script>
+
+        <div class="contentBelowNav pt-5 pb-5">
+            <div class="innerContent">
+                <h3>Hi, I am Parveen Barak,</h3>
+                <h4>A Full Stack Developer</h4>
+                <div id="HomePageImg">
+                   <a href="#"><img src="images/Photoroom-20240815_211607.png" alt=""></a> 
+                </div>
+                <p>Being willing to learn and work across technologies
+                    and domains is a valuable skill in today's rapidly
+                    changing job market. It shows that you are adaptable,
+                    curious, and open-minded. Exploring new technologies
+                    and using them to tackle real-life problems can also
+                    demonstrate creativity, innovation, and problem-solving skills,
+                    which are highly sought after by employers. It's always good
+                    to keep up with the latest trends and developments in your field to stay ahead of the curve and
+                    remain relevant.</p>
+
+                <div id="outerIconContainer">
+                    <div id="iconHolder">
+                        <ul>
+                           
+                            <li class="socialIcons"><a href="https://www.linkedin.com/in/parveen-barak-95942b16a/"
+                                    target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="socialIcons"><a href="https://github.com/parveenbarak" target="_blank"><i
+                                        class="fa fa-github"></i></a></li>
+                           
+                        </ul>
+                    </div>
+                    <div id="resumeButtons">
+                        <div>
+                        
+                           
+                            <a href="Skills_Icons/ParveenBarak-FullStackWebDeveloper-Resume.pdf" target="_blank" 
+                            onclick="downloadFile(event)">
+                            <button id="resume-button-2" type="button"><span></span> Resume</button>
+                            <i class="ri-download-2-line"></i>
+                          </a>
+                        </div>
+                        <div>
+                  
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Skills -->
+    <div id="to_stop_for_skills"></div>
+    <section class="class_skills" id="skills">
+        <div class="section_container">
+            <h2>SKILLS</h2>
+            <div id="skills_div">
+                <div id="frontend_skills">
+                    <div id="frontend_div1_container">
+                        <div id="frontend_div1">
+                            <h3 id="frontend_title">Frontend</h3>
+                        </div>
+                    </div>
+                    <div id="frontend_div2">
+                        <div class="tech_cards">
+                            <div class="outer_icon_div">
+                                <img src="Skills_Icons/icons8-html-5-48.png" alt="">
+                            </div>
+                            <h3>HTML5</h3>
+                        </div>
+                        <div class="tech_cards">
+                            <div class="outer_icon_div">
+                                <img src="Skills_Icons/icons8-css3-48.png" alt="">
+                            </div>
+                            <h3>CSS3</h3>
+                        </div>
+                        <div class="tech_cards">
+                            <div class="outer_icon_div">
+                                <img src="Skills_Icons/icons8-javascript-48.png" alt="">
+                            </div>
+                            <h3>JavaScript</h3>
+                        </div>
+                        <div class="tech_cards">
+                            <div class="outer_icon_div">
+                                <img src="Skills_Icons/reactlogo.jpg" alt="">
+                            </div>
+                            <h3>React JS</h3>
+                        </div>
+                        <div class="tech_cards">
+                            <div class="outer_icon_div">
+                                <img src="Skills_Icons/icons8-javascript-48.png" alt="">
+                            </div>
+                            <h3>Chakra UI</h3>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div id="backend_skills">
+                    <div id="backend_div1_container">
+                        <div id="backend_div1">
+                            <h3>Backend</h3>
+                        </div>
+                    </div>
+
+                    <div id="backend_div2">
+                        <!-- <div class="tech_cards">
+                            <div class="outer_icon_div">
+                                <img src="Skills_Icons/icons8-java-48.png" alt="">
+                            </div>
+                            <h3>Express JS</h3>
+                        </div> -->
+                        <div class="tech_cards">
+                            <div class="outer_icon_div">
+                                <img src="Skills_Icons/icons8-spring-logo-48.png" alt="">
+                            </div>
+                            <h3>Mongo DB</h3>
+                        </div>
+                        <!-- <div class="tech_cards">
+                            <div class="outer_icon_div">
+                                <img src="https://maven.apache.org/images/maven-logo-black-on-white.png" alt="">
+                            </div>
+                            <h3>Node JS</h3>
+                        </div> -->
+                        <div class="tech_cards">
+                            <div class="outer_icon_div">
+                                <img src="https://images.hdqwalls.com/wallpapers/python-logo-4k-i6.jpg" alt="">
+                            </div>
+                            <h3>Python</h3>
+                        </div>
+                        
+                        <div class="tech_cards">
+                            <div class="outer_icon_div">
+                                <img src="https://th.bing.com/th/id/OIP.wiYlfMaWSEwecKFQ4TRV3QHaHa?pid=ImgDet&rs=1" alt="">
+                            </div>
+                            <h3>Sql</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tools_title">
+                <h3 id="tools_title_div">Tools</h3>
+            </div>
+
+            <div id="tools_div_container">
+                <div id="tools_div">
+                    <div class="individual_tool">
+                        <div>
+                            <img src="Skills_Icons/icons8-github-48.png" alt="">
+                        </div>
+                        <h3>GitHub</h3>
+                    </div>
+                    <div class="individual_tool">
+                        <div>
+                            <img src="Skills_Icons/icons8-git-48.png" alt="">
+                        </div>
+                        <h3>Git</h3>
+                    </div>
+                    <div class="individual_tool">
+                        <div>
+                            <img src="Skills_Icons/netlify_logo.png" alt="">
+                        </div>
+                        <h3>Netlify</h3>
+                    </div>
+                    <div class="individual_tool">
+                        <div>
+                            <img src="Skills_Icons/vercel.png" alt="">
+                        </div>
+                        <h3>Vercel</h3>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects and Stats -->
+    <div id="projects_top_section"></div>
+    <section class="class_projects" id="projects">
+        <div class="section_container" id="projects_section_container">
+            <h2>PROJECTS</h2>
+            <div id="projectCards_1_2">
+                <div id="youtube_clone">
+                    <h1 class="project_title" data-aos="fade-right">TMetric Clone</h1>
+                    <div>
+                        <div class="project_img_div">
+                            <img class="project_img"  src="images/timely-facebook-futurists-089.vercel.app_.png" alt="">
+                        </div>
+                        <div data-aos="flip-up">
+                            <p class="project_desc">
+    
+                                Timely is a comprehensive time tracking and productivity management tool designed for businesses and freelancers. It offers features such as time tracking, project management, billing and invoicing, team management, and detailed reporting to enhance efficiency and profitability.</p>
+                            <h4 class="tech_stack">Tech Stack: HTML5 | CSS3 | JS | BOOTSTRAP</h4>
+                            <p class="members_days">A group project developed within a 5 days.</p>
+                        </div>
+            
+                        <div class="project_buttons">
+                            <a href="https://github.com/dracry0/Timely-facebook-futurists-089/tree/main/bootstrap" target="_blank"><button class="source_code_btn" id="youtube_source_code_btn">Source Code <i class="fa fa-github"></i></button></a>
+                            
+                            <a href="https://timely-facebook-futurists-089.vercel.app/" target="_blank"><button class="live_btn" id="youtube_live_btn">Live <i class="fa fa-play-circle-o"></i></button></a>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+
+
+
+
+                <div id="wrike_clone">
+                    <h1 class="project_title" data-aos="fade-right">Viatours</h1>
+                    <div>
+                        <div class="project_img_div">
+                            <img class="project_img" src="images/Screenshot 2024-08-15 125403.png" alt="">
+                        </div>
+                        <div data-aos="flip-up">
+                            <p class="project_desc">Viatours offers a platform for booking travel tours, activities, and experiences around the world.
+
+                                It features special discounts, trending destinations, and customer reviews, aiming to make world travel easy and memorable with flexible booking options and high-quality service.</p>
+                            <h4 class="tech_stack">Tech Stack: HTML5 | CSS3
+                            </h4>
+                            <p class="members_days">A collaborative project developed by a 5-member team within 5 days.
+                            </p>
+                        </div>
+
+                        <div class="project_buttons">
+                            <a href="https://github.com/dracry0/Timely-facebook-futurists-089/tree/main/figma" target="_blank"><button class="source_code_btn" id="wrike_source_code_btn">Source Code <i
+                                class="fa fa-github"></i></button></a>
+                            <a href=" https://viatours-facebook-futurists-089-2reh.vercel.app/" target="_blank"><button class="live_btn" id="wrike_live_btn">Live <i
+                                class="fa fa-play-circle-o"></i></button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div id="projectCards_1_2">
+                <div id="hotstar_clone">
+                    <h1 class="project_title" data-aos="fade-right">Masai Task Management</h1>
+                    <div>
+                        <div class="project_img_div">
+                            <img class="project_img" src="images/masai-task-management.vercel.app_.png" alt="">
+                        </div>
+                        <div>
+                            <p class="project_desc" data-aos="flip-up">Masai Task Management includes user authentication, task management, multiple views (list, Kanban, calendar, graph), real-time updates, notifications, recurring tasks, search and filter options. This comprehensive scope ensures productivity, caters to user demand, and offers valuable learning opportunities in modern web development.</p>
+                            <h4 class="tech_stack" data-aos="flip-up">Tech Stack: HTML5 | CSS3 | JS</h4>
+                            <p class="members_days" data-aos="flip-up">A group project of 3 members developed within a week.
+                            </p>
+                        </div>
+                        <div class="project_buttons">
+                           <a href="https://github.com/parveenbarak/masai_task_management" target="_blank"><button class="source_code_btn" id="hotstar_source_code_btn">Source Code <i
+                            class="fa fa-github"></i></button></a> 
+                           <a href=" https://masai-task-management.vercel.app/" target="_blank"><button class="live_btn" id="hotstar_live_btn">Live <i
+                            class="fa fa-play-circle-o"></i></button></a> 
+                        </div>
+                    </div>
+                </div>
+              
+                    
+                </div>
+               
+            </div>
+
+
+
+
+
+           
+
+        <div id="gitStatCals">
+            <h3>My GitHub Statistics & Calender</h3>
+        </div>
+
+
+        <section id="github-calender-section">
+            <div id="github-stats">
+                <br>
+               
+                <div style="display: flex;justify-content: center;align-items: center;width:100%; margin-bottom: 50px;">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=parveenbarak&theme=vue-dark&bg_color=1c1c1c&text_color=f0f0f0&icon_color=73cae7&card_width=300px&title_color=73cae7&show_icons=true&hide_border=true&layout=compact" width="400px" alt="parveenbarak">
+                </div>
+
+                <div id="github_stats_container">
+                    <div id="github_stats">
+                        <p><img src="https://github-readme-streak-stats.herokuapp.com/?user=parveenbarak&theme=shadow-brown&card_width=420&card_height=100&background=1c1c1c&stroke=f3a296&ring=f0f0f0&currStreakNum=73cae7&sideLabels=f0f0f0&fire=EB4506&sideNums=f0f0f0&border=1c1c1c" alt="parveenbarak" /></p>
+                        <p><img src="https://github-readme-stats.vercel.app/api?username=parveenbarak&bg_color=1c1c1c&text_color=f0f0f0&icon_color=73cae7&title_color=73cae7&card_width=300px&show_icons=true&hide_border=true&count_private=true" alt="Parveen Barak" /></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+
+    <!-- Contact -->
+    <div id="contact_top_section"></div>
+    <section class="class_contact" id="contact">
+        <div class="section_container">
+            <h2 id="contact_title_h2">CONTACT</h2>
+        </div>
+        <div id="get_in_touch_container">
+            <div id="get_in_touch">
+                <h4>If you are beginning a project, facing difficulties with an ongoing one, or aiming to enhance an
+                    existing one, and finding it challenging to understand technical concepts, please don't hesitate to
+                    contact me. I'll do my best to assist you.</h4>
+            </div>
+        </div>
+
+        <div id="contactEmailAddress">
+            <div id="contactAndEmailAndAddress">
+                <div id="contactNo">
+                    <h4><i class='fas fa-mobile-alt'></i> +91 8053021239</h4>
+                </div>
+                <div id="emailId">
+                    <a href="mailto:parveenbarak117@gmail.com" style="color: #5b887f;"><h4><i class='fas fa-envelope'></i> parveenbarak117@gmail.com</h4></a>
+                </div>
+                <div id="address">
+                    <h4><i class='fas fa-map-marker-alt'></i>Jhajjar, Haryana, India</h4>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact_iconHoler">
+            <ul>
+                <li><a href="https://www.linkedin.com/in/parveenbarak/" target="_blank"><i
+                            class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/parveenbarak" target="_blank"><i class="fa fa-github"></i></a></li>
+               
+            </ul>
+        </div>
+        <div id="end_wish">
+            <h4>Wish you become your best version for no reason.<i class="far fa-smile"></i></h4>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
+<script>
+    const body = document.querySelector("body");
+    const navbar = document.querySelector("#nav-menu");
+    const menuBtn = document.querySelector(".menu-btn");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    const cancelBtn1 = document.querySelector(".home");
+    const cancelBtn2 = document.querySelector(".about_me");
+    const cancelBtn3 = document.querySelector(".skills");
+    const cancelBtn4 = document.querySelector(".projects");
+    const cancelBtn5 = document.querySelector(".contact");
+    const cancelBtn6 = document.querySelector(".resume");
+    const resumeBtn = document.querySelector(".resumeButton");
+    const resumeBtnOnNavbar = document.querySelector("#resumeBtnOnNavbar");
+
+    const fun1 = ()=>{
+        console.log("fun1 executed")
+        const resumeURL = "./Sowjanya-Senapathi-Resume.pdf";
+                // Create a hidden anchor element to trigger the download
+                const downloadLink = document.createElement('a');
+                downloadLink.href = resumeURL;
+                downloadLink.download = 'Sowjanya-Senapathi-Resume.pdf';
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+
+    }
+
+    const fun2 = ()=>{
+        console.log("fun2 executed")
+        const resumeURL = "./Sowjanya-Senapathi-Resume.pdf";
+                window.open(resumeURL, '_blank');
+    }
+
+
+    resumeBtnOnNavbar.onclick = () => {
+        window.open("https://drive.google.com/file/d/1nj5MN1fCGiFKrouoZOEVNQ-5Zk5psvQy/view", '_blank', 'noreferrer');
+    }
+    resumeBtn.onclick = () => {
+        window.open("https://drive.google.com/file/d/1nj5MN1fCGiFKrouoZOEVNQ-5Zk5psvQy/view", '_blank', 'noreferrer');
+    }
+    menuBtn.onclick = () => {
+        navbar.classList.add("show");
+        menuBtn.classList.add("hide");
+        body.classList.add("disabled");
+    }
+    cancelBtn.onclick = () => {
+        body.classList.remove("disabled");
+        navbar.classList.remove("show");
+        menuBtn.classList.remove("hide");
+    }
+
+    cancelBtn1.onclick = () => {
+        body.classList.remove("disabled");
+        navbar.classList.remove("show");
+        menuBtn.classList.remove("hide");
+    }
+
+    cancelBtn2.onclick = () => {
+        body.classList.remove("disabled");
+        navbar.classList.remove("show");
+        menuBtn.classList.remove("hide");
+    }
+
+    cancelBtn3.onclick = () => {
+        body.classList.remove("disabled");
+        navbar.classList.remove("show");
+        menuBtn.classList.remove("hide");
+    }
+
+    cancelBtn4.onclick = () => {
+        body.classList.remove("disabled");
+        navbar.classList.remove("show");
+        menuBtn.classList.remove("hide");
+    }
+
+    cancelBtn5.onclick = () => {
+        body.classList.remove("disabled");
+        navbar.classList.remove("show");
+        menuBtn.classList.remove("hide");
+    }
+
+    cancelBtn6.onclick = () => {
+        body.classList.remove("disabled");
+        navbar.classList.remove("show");
+        menuBtn.classList.remove("hide");
+    }
+    function downloadFile(event) {
+      event.preventDefault();
+      const link = event.currentTarget;
+      const url = link.href;
+      window.open(url, "_blank");
+      const tempLink = document.createElement("a");
+      tempLink.href = url;
+      tempLink.download = "ParveenBarak-FullStackWebDeveloper-Resume.pdf";
+      document.body.appendChild(tempLink);
+      tempLink.click();
+      document.body.removeChild(tempLink);
+    }
+</script>
+<script src="js/navbar.js"></script>
+<script src="js/projects.js"></script>
+<script src="js/calendar.js"></script>
+<script>
+    GitHubCalendar(".calendar", "parveenbarak");
+    GitHubCalendar(".calendar", "parveenbarak", { responsive: true });
+</script>
